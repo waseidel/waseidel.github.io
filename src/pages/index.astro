@@ -1,13 +1,24 @@
 ---
-
+import { MdOutlineMail } from "react-icons/md";
+import { FaGithub } from "react-icons/fa";
 ---
-<h1 class="title">Hola mundo</h1>
 
-<style>
-	body {
-		background-color: #202020;
-	}
-.title {
-	color: skyblue;
-}
-</style>
+<main class="flex flex-col h-screen items-center justify-center bg-gray-200">
+  <article class="p-4 text-sm rounded-lg rotate-90 lg:rotate-0 bg-white border shadow-lg">
+    <h1 class="text-4xl">Walther A. Seidel M.</h1>
+    <p>Ingeniero de Sistemas</p>
+    <p>Desarrollador Web</p>
+    <ul class="flex w-full justify-between mt-2 text-2xl">
+      <li>
+        <a " href="mailto:waseidev@gmail.com"><MdOutlineMail /></a>
+      </li>
+      <li>
+        <a target="_blank" href="https://github.com/waseidev"><FaGithub /></a>
+      </li>
+    </ul>
+    <ul class="flex w-full justify-between mt-2">
+      <li><a href="/proyectos">Proyectos</a></li>
+      <li><a href="/contacto">Contacto</a></li>
+    </ul>
+  </article>
+</main>
