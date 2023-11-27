@@ -1,0 +1,56 @@
+---
+import { Image } from "astro:assets";
+import WaSeidel from "../../assets/images/WaSeidel.png";
+import { MdOutlineMail } from "react-icons/md";
+import { FaGithub, FaLinkedin, FaWhatsapp } from "react-icons/fa";
+---
+
+<main class="flex flex-col h-screen items-center justify-center bg-gray-200">
+  <article
+    class="flex p-4 text-sm rounded-lg rotate-90 lg:rotate-0 bg-white border shadow-lg"
+  >
+    <div class="flex mr-4 h-full items-center">
+      <Image
+        src={WaSeidel}
+        class="object-none object-center w-32 h-32 rounded-full"
+        width={450}
+        alt="WaSeidel"
+      />
+    </div>
+    <div>
+      <h1 class="text-4xl">Walther A. Seidel M.</h1>
+      <p>Ingeniero de Sistemas</p>
+      <p>Desarrollador Web</p>
+      <ul class="flex w-full justify-between mt-2 text-2xl">
+        <li>
+          <a href="mailto:waseidev@gmail.com"><MdOutlineMail /></a>
+        </li>
+        <li>
+          <a
+            class="text-[#211F1F]"
+            target="_blank"
+            href="https://github.com/waseidev"><FaGithub /></a
+          >
+        </li>
+        <li>
+          <a
+            class="text-[#0e76a8]"
+            target="_blank"
+            href="https://linkedin.com/in/WaSeidel"><FaLinkedin /></a
+          >
+        </li>
+        <li>
+          <a
+            class="text-[#373737]"
+            target="_blank"
+            href="https://wa.me/573102090000"><FaWhatsapp /></a
+          >
+        </li>
+      </ul>
+      <ul class="flex w-full justify-between mt-2">
+        <li><a href="/proyectos">Proyectos</a></li>
+        <li><a href="/contacto">Contacto</a></li>
+      </ul>
+    </div>
+  </article>
+</main>
