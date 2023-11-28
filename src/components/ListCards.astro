@@ -1,0 +1,30 @@
+---
+import HorizontalShopItem from "./HorizontalShopItem.astro";
+const { data, baseUrl } = Astro.props
+---
+
+
+<ul>
+    {
+      data.map((item) => (
+        <>
+          <HorizontalShopItem
+            title={item.data.title}
+            img={item.data.heroImage}
+            desc={item.data.description}
+            pricing={item.data.pricing}
+            oldPricing={item.data.oldPricing}
+            checkoutUrl={item.data.checkoutUrl}
+            badge={item.data.badge}
+            details={item.data.details}
+            tags={item.data.tags}
+            url={`${baseUrl}/${item.slug}`}
+            custom_link={item.data.custom_link}
+            custom_link_label={item.data.custom_link_label}
+          />
+          <div class="divider my-0" />
+        </>
+      ))
+    }
+  </ul>
+

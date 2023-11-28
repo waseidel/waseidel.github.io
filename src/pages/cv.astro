@@ -1,0 +1,102 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import TimeLineElement from "../components/cv/TimeLine.astro";
+import { education, experience, skills, certificates } from "../data/cv";
+---
+
+<BaseLayout title="Resume" sideBarActiveItemID="cv">
+  <div class="mb-5">
+    <div class="text-3xl w-full font-bold">Profile</div>
+  </div>
+
+  <div class="mb-10 text-justify">
+    <p>
+      Hello everyone! I am a recent graduate from the <em
+        >Cooperativa University of Colombia</em
+      >
+       with a focus on web development. I have experience with technologies such
+      as <strong>PHP</strong>,
+      <strong>React.js</strong>, <strong>MongoDB</strong>, <strong
+        >Laravel</strong
+      >, <strong>Python</strong>,
+      <strong>Pandas</strong>, and <strong>Linux</strong>. I am proactive, <em
+        >self-taught</em
+      >, and passionate about learning new skills and technologies.
+    </p>
+    <p>
+      During my university career, I was an active member of the free software
+      dissemination group and contributed for several consecutive years at the <em
+        >Latin American Free Software Festival</em
+      > (FLISol). I am passionate about development, especially FrontEnd with <strong
+        >ReactJS</strong
+      > and styling with <strong>TailwindCSS</strong>.
+    </p>
+    <p>
+      I am seeking an opportunity to apply my skills and strengthen my knowledge
+      in the world of web development. I am committed to being a valuable
+      contribution to the company that gives me the opportunity to start my
+      career.
+    </p>
+    <p>
+      If you are interested in learning more about me or working together, feel
+      free to contact me via email or WhatsApp. I would be happy to meet for a
+      coffee and discuss how I can contribute to your company.
+    </p>
+  </div>
+
+  <div class="mb-5">
+    <div class="text-3xl w-full font-bold">Education</div>
+  </div>
+
+  <div class="time-line-container grid gap-4 mb-10">
+    {
+      education.map((item) => (
+        <TimeLineElement
+          title={item.title}
+          subtitle={`From ${item.start_date} to ${item.end_date} at ${item.study_center}, ${item.city}, ${item.country}`}
+        />
+      ))
+    }
+  </div>
+
+  <div class="mb-5">
+    <div class="text-3xl w-full font-bold">Experience</div>
+  </div>
+
+  <div class="time-line-container mb-10">
+    {
+      experience.map((item) => (
+        <TimeLineElement
+          title={item.title}
+          subtitle={`From ${item.start_date} to ${item.end_date} at ${item.company}, ${item.city}, ${item.country}`}
+        >
+          {item.description && <p>{item.description}</p>}
+        </TimeLineElement>
+      ))
+    }
+  </div>
+
+  <div class="mb-5">
+    <div class="text-3xl w-full font-bold">Certifications</div>
+  </div>
+
+  <ul class="list-disc mx-6 mb-10 grid gap-2">
+    {
+      certificates.map((item) => (
+        <li>
+          <a href={item.url} rel="noopener noreferrer" target="_blank">
+            {item.title} - {item.institute}
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+
+  <div class="mb-5">
+    <div class="text-3xl w-full font-bold">Skills</div>
+  </div>
+
+  <ul class="list-disc md:columns-5 columns-2 mx-6">
+    {skills.map((item) => <li>{item}</li>)}
+  </ul>
+</BaseLayout>

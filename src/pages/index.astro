@@ -1,8 +1,47 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-const pageTitle = "Página de inicio";
+import ListCards from "../components/ListCards.astro";
+import { getCollection } from "astro:content";
+
+const posts = (await getCollection("blog")).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+);
+const last_posts = posts.slice(0, 3);
+
+const projects = (await getCollection("project")).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+);
+const last_projects = projects.slice(0, 3);
 ---
 
-<BaseLayout pageTitle={pageTitle}>
-  <h2>Mi impresionante subtítulo del blog</h2>
+<BaseLayout sideBarActiveItemID="home">
+  <div class="pb-12 mt-5">
+    <div class="text-xl py-1">Hola 👋</div>
+    <div class="text-5xl font-bold">I'm Walther Seidel</div>
+    <div class="text-3xl py-3 font-bold">Software Engineer</div>
+    <div class="py-2">
+      <text class="text-lg">
+        I'm a Colombian <strong>software engineer</strong> passionate about <strong
+          >web development</strong
+        > and <strong>open source</strong> more info about me in <a href="/cv"
+          >CV</a
+        >.
+      </text>
+    </div>
+    <div class="mt-8">
+      <a class="btn" href="https://twitter.com/waseidel" target="_blank">
+        Let's connect!</a
+      >
+    </div>
+  </div>
+
+  <div>
+    <div class="text-3xl w-full font-bold mb-2">My last projects {"</>"}</div>
+  </div>
+  <ListCards data={last_projects} baseUrl="/projects" />
+
+  <div>
+    <div class="text-3xl w-full font-bold mb-5 mt-10">Latest from blog</div>
+  </div>
+  <ListCards data={last_posts} baseUrl="/blog" />
 </BaseLayout>
